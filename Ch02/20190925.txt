@@ -1,3 +1,4 @@
+/*
 root@ubuntu:~/Desktop/Imbeded# gcc -o hello hello.c
 root@ubuntu:~/Desktop/Imbeded# ls
 hello  hello.c  lab1  lab2  lab3  lab4  lab5  lab6  Lab.Ch02.zip
@@ -197,7 +198,7 @@ Fn2 : [Second call], 3001, 3002
 Here is sub function ...
 
 
-
+*/
 
 
 
