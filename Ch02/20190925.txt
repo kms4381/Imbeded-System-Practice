@@ -1,0 +1,205 @@
+root@ubuntu:~/Desktop/Imbeded# gcc -o hello hello.c
+root@ubuntu:~/Desktop/Imbeded# ls
+hello  hello.c  lab1  lab2  lab3  lab4  lab5  lab6  Lab.Ch02.zip
+root@ubuntu:~/Desktop/Imbeded# file hello
+hello: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.15, not stripped
+root@ubuntu:~/Desktop/Imbeded# ./hello
+Hello World x86....
+
+root@ubuntu:~/Desktop/Imbeded# arm-linux-gcc -o hello.arm hello.c -DARM
+root@ubuntu:~/Desktop/Imbeded# ls
+hello  hello.arm  hello.c  lab1  lab2  lab3  lab4  lab5  lab6  Lab.Ch02.zip
+root@ubuntu:~/Desktop/Imbeded# file hello.arm
+hello.arm: ELF 32-bit LSB executable, ARM, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.16, not stripped
+root@ubuntu:~/Desktop/Imbeded# ./hello.arm
+bash: ./hello.arm: cannot execute binary file
+
+°øÀ¯µð·ºÅä¸® »ý¼º ÈÄ.
+root@ubuntu:~/Desktop/Imbeded# ls /mnt/hgfs/
+root@ubuntu:~/Desktop/Imbeded# cp hello.arm /mnt/hgfs/Temp/
+
+
+À©µµ¿ì¿¡¼­
+C:\Users\kms43\Desktop\»õ Æú´õ (3)>adb devices
+* daemon not running. starting it now on port 5037 *
+* daemon started successfully *
+List of devices attached
+0123456789ABCDEF        device
+
+
+C:\Users\kms43\Desktop\»õ Æú´õ (3)>adb shell
+~ # pwd
+pwd
+
+~ # ls
+ls
+[1;34macct[0m                  [1;32minit[0m                  [1;34msbin[0m
+[1;34mcache[0m                 [1;32minit.goldfish.rc[0m      [1;36msdcard[0m
+[1;34mconfig[0m                [1;32minit.rc[0m               [1;34msys[0m
+[1;36md[0m                     [1;32minit.sm5s4210.rc[0m      [1;34msystem[0m
+[1;34mdata[0m                  [1;32minit.sm5s4210.usb.rc[0m  [0;0mueventd.goldfish.rc[0m
+[0;0mdefault.prop[0m          [1;34mmnt[0m                   [0;0mueventd.rc[0m
+[1;34mdev[0m                   [1;34mproc[0m                  [0;0mueventd.sm5s4210.rc[0m
+[1;36metc[0m                   [1;34mroot[0m                  [1;34mvendor[0m
+~ # cd /data
+cd /data
+/data # ls
+ls
+[1;34manr[0m                [0;0mdd.ko[0m              [1;34mlost+found[0m         [1;34msystem[0m
+[1;34mapp[0m                [1;34mdontpanic[0m          [1;34mmisc[0m               [1;32mtest[0m
+[1;34mapp-private[0m        [1;34mdrm[0m                [1;32mmyapp[0m              [1;32mtest2[0m
+[1;34mbackup[0m             [1;32mhelloarm[0m           [1;32mmytest[0m             [1;34muser[0m
+[1;34mdalvik-cache[0m       [1;32mledapp[0m             [1;34mproperty[0m           [0;0mvirtual_buffer.ko[0m
+[1;34mdata[0m               [1;34mlocal[0m              [1;34mresource-cache[0m
+
+C:\Users\kms43\Desktop\»õ Æú´õ (3)>adb push hello.arm /data/
+6 KB/s (5745 bytes in 0.859s)
+
+C:\Users\kms43\Desktop\»õ Æú´õ (3)>adb shell
+~ # cd /data
+cd /data
+/data # ls -l hello.arm
+ls -l hello.arm
+-rw-rw-rw-    1 root     root          5745 Sep 25  2019 [0;0mhello.arm[0m
+/data # chmod 755 hello.arm
+chmod 755 hello.arm
+/data # ls -l hello.arm
+ls -l hello.arm
+-rwxr-xr-x    1 root     root          5745 Sep 25  2019 [1;32mhello.arm[0m/
+
+/data # /data/hello.arm
+/data/hello.arm
+/system/bin/sh: /data/hello.arm: not found
+
+ldd ¸í·É¾î´Â ÀÌ½ÇÇàÆÄÀÏÀÌ ¾î¶² ¶óÀÌºê·¯¸®°¡ ÇÊ¿äÇÑÁö ¾Ë·ÁÁÖ´Â ¸í·É¾î
+
+-static¿É¼ÇÀ» ÁÖÁö¾Ê¾Æ ¶óÀÌºê·¯¸®°¡ ¾ø±â¿¡ ½ÇÇàÀÌ ¾ÈµÇ¾ú´Ù.
+
+C:\Users\kms43\Desktop\»õ Æú´õ (3)>adb push hello.arm2 /data/
+2716 KB/s (648486 bytes in 0.233s)
+
+C:\Users\kms43\Desktop\»õ Æú´õ (3)>adb shell
+~ # cd /data
+cd /data
+/data # ls -l hello.arm2
+ls -l hello.arm2
+-rw-rw-rw-    1 root     root        648486 Sep 25  2019 [0;0mhello.arm2[0m
+/data # chmod 766 hello.arm2
+chmod 766 hello.arm2
+/data # ./hello.arm2
+./hello.arm2
+Hello World ARM....
+
+
+root@ubuntu:~/Desktop/Imbeded# cd lab5
+root@ubuntu:~/Desktop/Imbeded/lab5# ls
+lib  Makefile  test.c  test.h
+root@ubuntu:~/Desktop/Imbeded/lab5# ls -a
+.  ..  .config  lib  Makefile  test.c  test.h
+root@ubuntu:~/Desktop/Imbeded/lab5# gedit .config Makefile &
+
+root@ubuntu:~/Desktop/Imbeded/lab5# cd lib
+root@ubuntu:~/Desktop/Imbeded/lab5/lib# ls
+1.c  2.c  Makefile  sub
+root@ubuntu:~/Desktop/Imbeded/lab5/lib# gedit Makefile &
+[3] 2466
+root@ubuntu:~/Desktop/Imbeded/lab5# make
+arm-linux-gcc  -c  -Iinclude  -DCONFIG_FN2 -DCONFIG_SUBFN  test.c
+make  -C  lib
+make[1]: Entering directory `/root/Desktop/Imbeded/lab5/lib'
+arm-linux-gcc -c 1.c
+arm-linux-gcc -c 2.c
+make  -C  sub
+make[2]: Entering directory `/root/Desktop/Imbeded/lab5/lib/sub'
+arm-linux-gcc -c subfn.c
+make[2]: Leaving directory `/root/Desktop/Imbeded/lab5/lib/sub'
+ar  ruv  libabc.a  1.o 2.o sub/subfn.o
+ar: creating libabc.a
+a - 1.o
+a - 2.o
+a - sub/subfn.o
+make[1]: Leaving directory `/root/Desktop/Imbeded/lab5/lib'
+arm-linux-gcc  -o  test  test.o  -Llib  -labc
+root@ubuntu:~/Desktop/Imbeded/lab5# file test
+test: ELF 32-bit LSB executable, ARM, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.16, not stripped
+
+root@ubuntu:~/Desktop/Imbeded/lab5# cp test /mnt/hgfs/Temp/
+
+
+
+C:\Users\kms43\Desktop\»õ Æú´õ (3)>adb push test /data/data/
+1128 KB/s (6943 bytes in 0.006s)
+
+C:\Users\kms43\Desktop\»õ Æú´õ (3)>adb shell
+~ # cd /data/data
+cd /data/data
+
+/data/data # ls -l test
+ls -l test
+-rw-rw-rw-    1 root     root          6943 Sep 25  2019 [0;0mtest[0m
+/data/data # chmod 755 test
+chmod 755 test
+/data/data # ./test
+./test
+/system/bin/sh: ./test: not found
+
+static ¿É¼ÇÀÌ¾ø¾î ½ÇÇàÀÌ¾ÈµÇ±â¿¡ makefile¿¡ -staticÃß°¡
+
+root@ubuntu:~/Desktop/Imbeded/lab5# make clean
+make  -C  lib clean
+make[1]: Entering directory `/root/Desktop/Imbeded/lab5/lib'
+make  -C  sub clean
+make[2]: Entering directory `/root/Desktop/Imbeded/lab5/lib/sub'
+rm  -f  sub  *.o
+make[2]: Leaving directory `/root/Desktop/Imbeded/lab5/lib/sub'
+rm  -f  *.o  *.a  *.so
+make[1]: Leaving directory `/root/Desktop/Imbeded/lab5/lib'
+rm  -f  test  *.o
+root@ubuntu:~/Desktop/Imbeded/lab5# make
+arm-linux-gcc  -c  -Iinclude  -DCONFIG_FN2 -DCONFIG_SUBFN  test.c
+make  -C  lib
+make[1]: Entering directory `/root/Desktop/Imbeded/lab5/lib'
+arm-linux-gcc -c 1.c
+arm-linux-gcc -c 2.c
+make  -C  sub
+make[2]: Entering directory `/root/Desktop/Imbeded/lab5/lib/sub'
+arm-linux-gcc -c subfn.c
+make[2]: Leaving directory `/root/Desktop/Imbeded/lab5/lib/sub'
+ar  ruv  libabc.a  1.o 2.o sub/subfn.o
+ar: creating libabc.a
+a - 1.o
+a - 2.o
+a - sub/subfn.o
+make[1]: Leaving directory `/root/Desktop/Imbeded/lab5/lib'
+arm-linux-gcc  -o  test  test.o  -Llib  -labc -static
+root@ubuntu:~/Desktop/Imbeded/lab5# ls
+lib  Makefile  test  test.c  test.h  test.o
+root@ubuntu:~/Desktop/Imbeded/lab5# 
+
+C:\Users\kms43\Desktop\»õ Æú´õ (3)>adb push test /data/data/
+2505 KB/s (649986 bytes in 0.253s)
+
+C:\Users\kms43\Desktop\»õ Æú´õ (3)>adb shell
+~ # cd /test/test
+cd /test/test
+/system/bin/sh: cd: can't cd to /test/test
+~ # cd /data/data
+cd /data/data
+/data/data # ls -l test
+ls -l test
+-rw-rw-rw-    1 root     root        649986 Sep 25  2019 [0;0mtest[0m
+/data/data # chmod 755 test
+chmod 755 test
+/data/data # ./test
+./test
+Fn1 : [First call], 1001, 1002
+Fn2 : [Second call], 3001, 3002
+Here is sub function ...
+
+
+
+
+
+
+
+
