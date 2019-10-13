@@ -1,4 +1,4 @@
-UART1포트에 연결해서 부팅
+/*UART1포트에 연결해서 부팅
 보레이트 115200으로 맞춰줘야 동작
 
 change setting에서 serial 마지막 두개 옵션 none으로 바꾸고
@@ -35,3 +35,4 @@ set은 변수 설정하는 명령어
 
 #help tftp
 #tftp uboot-bin 40000000
+*/
