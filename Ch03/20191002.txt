@@ -1,0 +1,37 @@
+UART1포트에 연결해서 부팅
+보레이트 115200으로 맞춰줘야 동작
+
+change setting에서 serial 마지막 두개 옵션 none으로 바꾸고
+
+#reboot 도중에 30초가 지나기 전에 엔터 입력
+#help 사용할 수 있는 명령어 나옴
+#version 지금 사용하는 부트로더의 버젼이 나옴
+
+md 명령어는 디램의 물리주소를 보여줌
+
+md.b 40008000
+
+set은 변수 설정하는 명령어
+
+#printenv인데 print만 해도 됨
+#setenv bootdelay 10
+#print
+#set baudrate 9600
+
+#reset
+
+#set bootdelay 10
+#set baudrate 9600
+#save  
+
+보레이트를 9600으로 바꿧는데 change setting의 보레이트는
+115200 근데 ㅈㄴ 잘됨 왜그럴까?  글쎄요...
+
+원래는 바뀐 보레이트 값에 맞게 setting도 바꿔줘야 함
+
+환경변수 설정을 바꾸게 되면 메모리상에서 바뀌는 것
+원본을 수정하지 않는다면 재부팅하면 원본의 데이터가
+로드되어 적용됨
+
+#help tftp
+#tftp uboot-bin 40000000
